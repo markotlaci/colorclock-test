@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by markotlaci (http://jsbin.com/juwixip/6/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="szinora">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:300" rel="stylesheet">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+}
+
+#clock {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 60px;
+  margin-top: -30px;
+  text-align: center;
+  position: relative;
+  top: 50%;
+}
+
+
+</style>
+</head>
+<body>
+<div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+  if (hours < 10) {
+    hours = '0' + hours; 
+  }
+  if (minutes < 10) {
+    minutes = '0' + minutes; 
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  hours = '' + hours;
+  minutes = '' + minutes;
+  seconds = '' + seconds;
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  
+  var hoursC = hours.charAt(1) + hours.charAt(0);
+  var minutesC = minutes.charAt(1) + minutes.charAt(0);
+  var secondsC = seconds.charAt(1) + seconds.charAt(0);;
+  var hexColor = '#' + hoursC + minutesC + secondsC;
+  
+  document.body.style.background = hexColor;
+  document.getElementById('clock').innerHTML = clockFace; 
+
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+colorClock();
+</script>
+</body>
+</html>
